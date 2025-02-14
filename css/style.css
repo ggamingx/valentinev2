@@ -1,0 +1,132 @@
+body {
+    font-family: 'Permanent Marker', sans-serif;
+    background-color: palevioletred;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem 8rem;
+    text-align: center;
+    border-radius: 2rem;
+    box-shadow: rgba(100, 100, 111, 0.4) 0px 0px 29px 10px;
+    position: relative;
+    z-index: 3; 
+    overflow: hidden; 
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    img {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+.container img,
+.container h1,
+.container button {
+    z-index: 2;
+}
+
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    height: 2px;
+    background-image: linear-gradient(-45deg, #ffffff, rgba(0, 0, 255, 0));
+    filter: drop-shadow(0 0 8px #d6d6d6);
+    animation: tail 5000ms ease-in-out infinite, shooting 5000ms ease-in-out infinite;
+}
+
+.star::before,
+.star::after {
+    position: absolute;
+    content: '';
+    top: calc(50% - 1px);
+    right: 0;
+    height: 2px;
+    border-radius: 100%;
+    background-image: linear-gradient(-45deg, rgba(0, 0, 255, 0), #fdfdfd, rgba(0, 0, 255, 0));
+    transform: translateX(50%) rotateZ(45deg);
+    animation: shining 5000ms ease-in-out infinite;
+}
+
+.star::after {
+    transform: translateX(50%) rotateZ(-45deg);
+}
+
+@keyframes tail {
+    0% { width: 0; }
+    30% { width: 100px; }
+    100% { width: 0; }
+}
+
+@keyframes shooting {
+    0% { transform: translateX(0) rotate(45deg); }
+    100% { transform: translate(200vw, 200vh); }
+}
+
+@keyframes shining {
+    0% { width: 0; }
+    50% { width: 20px; }
+    100% { width: 0; }
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn {
+    margin: 20px;
+    width: 6rem;
+    height: 3rem;
+    font-size: xx-large;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.y {
+    background-color: #198754;
+}
+
+.y:hover {
+    background-color: #157347;
+}
+
+.n {
+    background-color: #dc3545;
+}
+
+.n:hover {
+    background-color: #bb2d3b;
+}
