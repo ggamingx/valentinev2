@@ -42,7 +42,7 @@ yesBtn.addEventListener("click", () => {
 
     setTimeout(() => {
         yesBtn.addEventListener("click", () => {
-            window.location.href = "./letter";
+            window.location.href = "/valentinev2/letter";
         });
     }, 100); 
 });
